@@ -7,6 +7,7 @@ import Homepage from "./Homepage.vue";
 import SearchPage from "./SearchPage.vue";
 import MoreAnime from "./MoreAnime.vue";
 import ShowPage from "./ShowPage.vue";
+import ShowEpisodePage from "./ShowEpisodePage.vue";
 
 Vue.config.productionTip = false;
 
@@ -16,7 +17,8 @@ const routes = [
   { path: "/", component: Homepage },
   { path: "/search", component: SearchPage },
   { path: "/more_anime", component: MoreAnime },
-  { path: "/showpage", component: ShowPage }
+  { path: "/showpage", component: ShowPage },
+  { path: "/show_episode", component: ShowEpisodePage }
 ];
 
 const router = new VueRouter({
