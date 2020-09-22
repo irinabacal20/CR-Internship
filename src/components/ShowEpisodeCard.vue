@@ -1,7 +1,9 @@
 <template>
   <div id="show-episode-card">
     <img :src="`${episodeImage}`" alt="Episode Image">
-    <p id="episode-number">Episode {{episodeNumber}}</p>
+    <router-link to="/show_episode">
+      <p id="episode-number">Episode {{episodeNumber}}</p>
+    </router-link>
     <p>{{episodeTitle}}</p>
   </div>
 </template>
@@ -19,18 +21,27 @@ export default {
 
 <style>
 #show-episode-card {
-  width: 280px;
   box-shadow: var(--box-shadow);
-  font-family: var(--general-font);
-  color: var(--third-color);
-  font-size: 17px;
+
+  font-size: 15px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #show-episode-card > img {
-  width: 280px;
-  height: 200px;
+  width: 100%;
+  height: 50%;
   object-fit: cover;
   object-position: top;
+}
+
+#episode-number,
+#show-episode-card > p {
+  padding: 5px;
+  text-decoration: none;
+  font-family: var(--general-font);
+  color: var(--third-color);
 }
 
 #episode-number {

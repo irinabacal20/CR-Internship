@@ -3,11 +3,9 @@
     <ShowPageHeader/>
     <div id="show-info-container">
       <ShowDescriptionCard/>
-      <ShowEpisodeCard
-        episodeImage="https://i.ytimg.com/vi/f-SUprXyYYk/maxresdefault.jpg"
-        episodeNumber="1"
-        episodeTitle="Pilot Episode"
-      />
+      <div id="episodes">
+        <ShowEpisodeCollection/>
+      </div>
     </div>
   </div>
 </template>
@@ -15,13 +13,14 @@
 <script>
 import ShowPageHeader from "./components/ShowPageHeader.vue";
 import ShowDescriptionCard from "./components/ShowDescriptionCard.vue";
-import ShowEpisodeCard from "./components/ShowEpisodeCard.vue";
+import ShowEpisodeCollection from "./components/ShowEpisodeCollection.vue";
+
 export default {
   name: "ShowPage",
   components: {
     ShowPageHeader,
     ShowDescriptionCard,
-    ShowEpisodeCard
+    ShowEpisodeCollection
   }
 };
 </script>
@@ -32,6 +31,12 @@ export default {
   margin-right: var(--margin-right);
   margin-top: 80px;
   margin-bottom: 80px;
+}
+#episodes {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: var(--first-color);
+  box-shadow: var(--box-shadow);
 }
 
 @media screen and (max-width: 900px) {
