@@ -34,7 +34,7 @@ export default {
 }
 
 #show-card-contents > img {
-  width: 150px;
+  width: 220px;
   height: 66, 66%;
   object-fit: cover;
   object-position: top;
@@ -62,5 +62,4 @@ export default {
   font-weight: bold;
   font-size: 18px;
 }
-
 </style>

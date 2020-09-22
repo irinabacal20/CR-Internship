@@ -3,6 +3,11 @@
     <ShowPageHeader/>
     <div id="show-info-container">
       <ShowDescriptionCard/>
+      <ShowEpisodeCard
+        episodeImage="https://i.ytimg.com/vi/f-SUprXyYYk/maxresdefault.jpg"
+        episodeNumber="1"
+        episodeTitle="Pilot Episode"
+      />
     </div>
   </div>
 </template>
@@ -10,12 +15,13 @@
 <script>
 import ShowPageHeader from "./components/ShowPageHeader.vue";
 import ShowDescriptionCard from "./components/ShowDescriptionCard.vue";
-
+import ShowEpisodeCard from "./components/ShowEpisodeCard.vue";
 export default {
   name: "ShowPage",
   components: {
     ShowPageHeader,
-    ShowDescriptionCard
+    ShowDescriptionCard,
+    ShowEpisodeCard
   }
 };
 </script>
