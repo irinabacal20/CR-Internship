@@ -1,0 +1,113 @@
+<template>
+  <div id="search-card">
+    <div id="search-card-contents">
+      <img :src="`${searchCardImage}`" alt="Browse Card Image">
+      <div id="show-description">
+        <p id="show-title">{{showTitle}}</p>
+        <p id="show-rating">Rating: {{showRating}}</p>
+        <p>{{showDescription}}</p>
+        <router-link to="/showpage">
+          <button id="watch-button">Watch</button>
+        </router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "SearchCard",
+  data() {
+    return {
+      searchCardImage:
+        "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg",
+      showTitle: "A.I.C.O Incarnation",
+      showRating: "5/5",
+      showDescription:
+        "In 2035, a biological research project to create an Artificial and Intelligent Cellular Organism (A.I.C.O.) went awry, resulting in an incident called the Burst which transformed Kurobe Gorge into a quarantine area infested by a rampant growth of synthetic organisms called Matter. Two years later, high school student Aiko Tachibana finds that she may be the duplicate of a girl trapped within the Matter whose family disappeared in the Burst."
+    };
+  }
+};
+</script>
+
+<style>
+#search-card {
+  background: var(--first-color);
+  box-shadow: var(--box-shadow);
+}
+
+#search-card-contents > img {
+  width: 150px;
+  height: 66, 66%;
+  object-fit: cover;
+  object-position: top;
+}
+
+#search-card-contents {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  font-family: var(--general-font);
+  color: var(--third-color);
+  font-size: 15px;
+  text-align: justify;
+}
+
+#show-description {
+  margin-left: 20px;
+}
+
+#show-description > p,
+#show-description > a > button {
+  margin: 10px 20px;
+}
+
+#show-title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#show-description > a > button {
+  width: 80px;
+  height: 30px;
+  border-radius: var(--button-border-radius);
+  border: var(--button-border);
+  box-shadow: -1px 3px 15px -5px var(--first-color);
+  font-weight: bold;
+  background: var(--third-color);
+  color: var(--first-color);
+  cursor: pointer;
+}
+
+#show-description > a > button:hover {
+  background: var(--button-hover);
+  border: -1px 3px 15px -5px var(--button-hover);
+}
+
+@media screen and (max-width: 900px) {
+  #search-card-contents {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #search-card-contents > img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #show-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #show-description > a > button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #show-title,
+  #show-rating {
+    text-align: center;
+  }
+}
+</style>
