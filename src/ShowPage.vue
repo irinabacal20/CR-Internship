@@ -4,6 +4,7 @@
     <div id="show-info-container">
       <ShowDescriptionCard/>
       <div id="episodes">
+        <h1>Episodes</h1>
         <ShowEpisodeCollection/>
       </div>
     </div>
@@ -44,5 +45,12 @@ export default {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+#episodes > h1 {
+  font-family: var(--general-font);
+  color: var(--third-color);
+  padding-left: 20px;
+  padding-top: 20px;
 }
 </style>
