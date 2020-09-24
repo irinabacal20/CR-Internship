@@ -1,10 +1,12 @@
 <template>
   <div id="browse-card">
-    <div id="browse-card-image">
-      <img :src="`${browseCardImage}`" alt="Browse Card Image">
-    </div>
-    <div id="show-title">{{showTitle}}</div>
-    <div id="show-review">{{showReview}}</div>
+    <router-link to="/showpage">
+      <div id="browse-card-image">
+        <img :src="`${browseCardImage}`" alt="Browse Card Image">
+      </div>
+      <div id="show-title">{{showTitle}}</div>
+      <div id="show-review">{{showReview}}</div>
+    </router-link>
   </div>
 </template>
 
@@ -30,6 +32,10 @@ export default {
   padding: 20px 0;
 }
 
+#browse-card-image > img:hover {
+  box-shadow: -1px 3px 15px -5px var(--second-color);
+}
+
 #browse-card-image > img {
   width: 100%;
   object-fit: cover;
@@ -43,5 +49,9 @@ export default {
   font-family: var(--general-font);
   font-size: 15px;
   padding: 5px 0;
+}
+
+a {
+  text-decoration: none;
 }
 </style>
