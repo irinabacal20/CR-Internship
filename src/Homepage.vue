@@ -2,17 +2,17 @@
   <div id="homepage">
     <HeroSection></HeroSection>
     <div class="collection-container">
-      <BrowseHeaderCollection categoryName="Most Popular"/>
+      <BrowseHeaderCollection categoryName="Most Popular" category="/most_popular"/>
       <BrowseCollection/>
     </div>
 
     <div class="collection-container">
-      <BrowseHeaderCollection categoryName="Newest"/>
+      <BrowseHeaderCollection categoryName="Newest" category="/newest"/>
       <BrowseCollection/>
     </div>
 
     <div class="collection-container">
-      <BrowseHeaderCollection categoryName="Recently Updated"/>
+      <BrowseHeaderCollection categoryName="Recently Updated" category="/recently_updated"/>
       <BrowseCollection/>
     </div>
 

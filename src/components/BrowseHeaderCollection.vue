@@ -1,7 +1,7 @@
 <template>
   <div id="browse-header-collection">
     <div id="category-name">{{categoryName}}</div>
-    <router-link to="/more_anime" id="see-more">
+    <router-link :to="category" id="see-more">
       <button>See more &gt;</button>
     </router-link>
   </div>
@@ -11,7 +11,8 @@
 export default {
   name: "BrowseHeaderCollection",
   props: {
-    categoryName: { type: String }
+    categoryName: String,
+    category: String
   }
 };
 </script>

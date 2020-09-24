@@ -6,6 +6,21 @@
         showTitle="A.I.C.O Incarnation"
         showReview="5/5"
       />
+      <BrowseCard
+        browseCardImage="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg"
+        showTitle="A.I.C.O Incarnation"
+        showReview="5/5"
+      />
+      <BrowseCard
+        browseCardImage="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg"
+        showTitle="A.I.C.O Incarnation"
+        showReview="5/5"
+      />
+      <BrowseCard
+        browseCardImage="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg"
+        showTitle="A.I.C.O Incarnation"
+        showReview="5/5"
+      />
     </div>
   </div>
 </template>
