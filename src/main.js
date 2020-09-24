@@ -2,7 +2,6 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
 import "../public/reset.css";
-import Axios from "axios";
 import Homepage from "./Homepage.vue";
 import SearchPage from "./SearchPage.vue";
 import MoreAnime from "./MoreAnime.vue";
@@ -12,8 +11,9 @@ import MostPopular from "./MostPopular.vue";
 import Newest from "./Newest.vue";
 import RecentlyUpdated from "./RecentlyUpdated.vue";
 
-Vue.config.productionTip = false;
+import store from "./store/store.js";
 
+Vue.config.productionTip = false;
 Vue.use(VueRouter);
 
 const routes = [
@@ -34,5 +34,6 @@ const router = new VueRouter({
 
 new Vue({
   render: (h) => h(App),
-  router
+  router,
+  store
 }).$mount("#app");
