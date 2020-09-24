@@ -5,7 +5,7 @@
       <div id="showInfo">
         <p>#trending</p>
         <h1>{{hero.title}}</h1>
-        <p>{{hero.description}}</p>
+        <p id="hero-description">{{hero.description}}...</p>
         <router-link :to="'/showpage/'+ hero.slug">WATCH</router-link>
       </div>
     </section>
@@ -87,6 +87,14 @@ export default {
 #showInfo > a:hover {
   background: var(--button-hover);
   border: -1px 3px 15px -5px var(--button-hover);
+}
+
+#hero-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
 
 @media screen and (max-width: 900px) {
