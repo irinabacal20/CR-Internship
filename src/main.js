@@ -8,6 +8,9 @@ import SearchPage from "./SearchPage.vue";
 import MoreAnime from "./MoreAnime.vue";
 import ShowPage from "./ShowPage.vue";
 import ShowEpisodePage from "./ShowEpisodePage.vue";
+import MostPopular from "./MostPopular.vue";
+import Newest from "./Newest.vue";
+import RecentlyUpdated from "./RecentlyUpdated.vue";
 
 Vue.config.productionTip = false;
 
@@ -18,7 +21,10 @@ const routes = [
   { path: "/search", component: SearchPage },
   { path: "/more_anime", component: MoreAnime },
   { path: "/showpage", component: ShowPage },
-  { path: "/show_episode", component: ShowEpisodePage }
+  { path: "/show_episode", component: ShowEpisodePage },
+  { path: "/most_popular", component: MostPopular },
+  { path: "/newest", component: Newest },
+  { path: "/recently_updated", component: RecentlyUpdated }
 ];
 
 const router = new VueRouter({

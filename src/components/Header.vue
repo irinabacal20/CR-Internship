@@ -7,9 +7,9 @@
         </router-link>
       </div>
       <div id="navbar-nested-options">
-        <router-link to="/" class="navbar-option">Most Popular</router-link>
-        <router-link to="/more_anime" class="navbar-option">Newest</router-link>
-        <router-link to="/more_anime" class="navbar-option">Recently Updated</router-link>
+        <router-link to="/most_popular" class="navbar-option">Most Popular</router-link>
+        <router-link to="/newest" class="navbar-option">Newest</router-link>
+        <router-link to="/recently_updated" class="navbar-option">Recently Updated</router-link>
         <router-link to="/search" class="search-icon">
           <img src="../assets/search_icon.png" alt="Search" width="26px" height="26px">
         </router-link>
