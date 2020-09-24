@@ -7,8 +7,9 @@
         </router-link>
       </div>
       <div id="navbar-nested-options">
-        <router-link to="/" class="navbar-option">Homepage</router-link>
-        <router-link to="/more_anime" class="navbar-option">More Anime</router-link>
+        <router-link to="/" class="navbar-option">Most Popular</router-link>
+        <router-link to="/more_anime" class="navbar-option">Newest</router-link>
+        <router-link to="/more_anime" class="navbar-option">Recently Updated</router-link>
         <router-link to="/search" class="search-icon">
           <img src="../assets/search_icon.png" alt="Search" width="26px" height="26px">
         </router-link>
@@ -43,7 +44,7 @@ export default {
 
 #navbar-nested-options {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(30px, auto);
   grid-gap: 10px;
 }
