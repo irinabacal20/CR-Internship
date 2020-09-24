@@ -7,6 +7,11 @@
         <h1>Episodes</h1>
         <ShowEpisodeCollection/>
       </div>
+
+      <div id="cast-members">
+        <h1>Cast</h1>
+        <ShowMetaCollection/>
+      </div>
     </div>
   </div>
 </template>
@@ -15,13 +20,15 @@
 import ShowPageHeader from "./components/ShowPageHeader.vue";
 import ShowDescriptionCard from "./components/ShowDescriptionCard.vue";
 import ShowEpisodeCollection from "./components/ShowEpisodeCollection.vue";
+import ShowMetaCollection from "./components/ShowMetaCollection.vue";
 
 export default {
   name: "ShowPage",
   components: {
     ShowPageHeader,
     ShowDescriptionCard,
-    ShowEpisodeCollection
+    ShowEpisodeCollection,
+    ShowMetaCollection
   }
 };
 </script>
@@ -33,7 +40,8 @@ export default {
   margin-top: 80px;
   margin-bottom: 80px;
 }
-#episodes {
+#episodes,
+#cast-members {
   margin-top: 50px;
   margin-bottom: 50px;
   background: var(--first-color);
@@ -47,7 +55,8 @@ export default {
   }
 }
 
-#episodes > h1 {
+#episodes > h1,
+#cast-members > h1 {
   font-family: var(--general-font);
   color: var(--third-color);
   padding-left: 20px;

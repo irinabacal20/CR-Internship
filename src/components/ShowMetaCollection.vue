@@ -1,7 +1,27 @@
 <template>
   <div id="show-meta-collection">
     <ShowMetaCard
-      character="https://www.google.com/search?q=Haruka+Shiraishi&newwindow=1&sxsrf=ALeKk02zAwMGnlVRa5C9V-mhpmqr6uehGQ:1600865465545&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiYs6DLqP_rAhXQX8AKHS4eAxQQ_AUoAXoECBsQAw&biw=1536&bih=722#imgrc=TNm9WE6Tmu0k_M"
+      actorImage="https://www.animenewsnetwork.com/hotlink/images/encyc/P104544-1599089666.1343242355.jpg"
+      actor="Haruka Shiraisi"
+      characterName="Aiko Tachibana"
+    />
+    <ShowMetaCard
+      actorImage="https://www.animenewsnetwork.com/hotlink/images/encyc/P104544-1599089666.1343242355.jpg"
+      actor="Haruka Shiraisi"
+      characterName="Aiko Tachibana"
+    />
+    <ShowMetaCard
+      actorImage="https://www.animenewsnetwork.com/hotlink/images/encyc/P104544-1599089666.1343242355.jpg"
+      actor="Haruka Shiraisi"
+      characterName="Aiko Tachibana"
+    />
+    <ShowMetaCard
+      actorImage="https://www.animenewsnetwork.com/hotlink/images/encyc/P104544-1599089666.1343242355.jpg"
+      actor="Haruka Shiraisi"
+      characterName="Aiko Tachibana"
+    />
+    <ShowMetaCard
+      actorImage="https://www.animenewsnetwork.com/hotlink/images/encyc/P104544-1599089666.1343242355.jpg"
       actor="Haruka Shiraisi"
       characterName="Aiko Tachibana"
     />
@@ -22,5 +42,16 @@ export default {
 #show-meta-collection {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
+  margin: 20px;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  #show-meta-collection {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+  }
 }
 </style>

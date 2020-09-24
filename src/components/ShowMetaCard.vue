@@ -1,9 +1,9 @@
 <template>
   <div id="show-meta-card">
-    <img :src="`${character}`" alt="Show Character">
+    <img :src="`${actorImage}`" alt="Show Character">
     <div id="character-info">
-      <p>{{actor}}</p>
-      <p>{{characterName}}</p>
+      <p id="actor-name">{{actor}}</p>
+      <p id="character-name">{{characterName}}</p>
     </div>
   </div>
 </template>
@@ -12,7 +12,7 @@
 export default {
   name: "ShowMetaCard",
   props: {
-    character: String,
+    actorImage: String,
     actor: String,
     characterName: String
   }
@@ -22,11 +22,30 @@ export default {
 <style>
 #show-meta-card {
   display: flex;
-  justify-content: space-evenly;
+  width: 100%;
+  font-family: var(--general-font);
+  color: var(--third-color);
+  box-shadow: var(--box-shadow);
 }
 
 #show-meta-card > img {
-  width: 100%;
-  height: 100%;
+  width: 30%;
+  object-fit: cover;
+  object-position: top;
+}
+
+#actor-name {
+  font-weight: bold;
+}
+
+#character-info > p {
+  padding: 8px;
+}
+#character-info {
+  width: 50%;
+}
+
+#character-name {
+  font-size: 14px;
 }
 </style>

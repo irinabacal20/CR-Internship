@@ -22,7 +22,6 @@ export default {
 <style>
 #show-episode-card {
   box-shadow: var(--box-shadow);
-
   font-size: 15px;
   padding-top: 20px;
   padding-left: 20px;
