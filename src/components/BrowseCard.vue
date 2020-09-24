@@ -24,15 +24,14 @@ export default {
 
 <style>
 #browse-card {
-  width: 150px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px 10px;
+  padding: 20px 0;
 }
 
 #browse-card-image > img {
-  width: 150px;
-  height: 66, 66%;
+  width: 100%;
   object-fit: cover;
   object-position: top;
   box-shadow: var(--box-shadow);

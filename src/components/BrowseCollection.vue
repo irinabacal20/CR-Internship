@@ -30,7 +30,8 @@ export default {
 #browse-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  margin-left: 25px;
+  grid-gap: 15px;
+  margin: 15px;
 }
 
 @media screen and (max-width: 900px) {
