@@ -3,6 +3,7 @@
     <section id="hero-section">
       <img :src="`${coverImage}`" alt="Today`s Pick">
       <div id="showInfo">
+        <p>#trending</p>
         <h1>{{animeTitle}}</h1>
         <p>{{showDescription}}</p>
         <router-link to="/showpage">

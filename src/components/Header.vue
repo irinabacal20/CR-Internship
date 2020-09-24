@@ -2,7 +2,9 @@
   <nav id="navbar">
     <div id="navbar-content-container">
       <div id="navbar-logo">
-        <img src="../assets/logo.png" width="160px" height="30px" alt="Logo">
+        <router-link to="/">
+          <img src="../assets/logo.png" width="160px" height="30px" alt="Logo">
+        </router-link>
       </div>
       <div id="navbar-nested-options">
         <router-link to="/" class="navbar-option">Homepage</router-link>
@@ -77,6 +79,9 @@ export default {
   margin-top: auto;
   margin-bottom: auto;
   padding: 10px;
+}
+#navbar-logo:hover {
+  filter: drop-shadow(0 0 0.25rem var(--second-color));
 }
 
 @media screen and (max-width: 900px) {
