@@ -62,4 +62,20 @@ export default {
   font-weight: bold;
   font-size: 18px;
 }
+
+@media screen and (max-width: 900px) {
+  #show-card-contents {
+    display: flex;
+    flex-direction: column;
+  }
+  #show-card-contents > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #show-card-title,
+  #show-card-rating {
+    text-align: center;
+  }
+}
 </style>
