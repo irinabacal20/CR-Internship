@@ -8,6 +8,11 @@ const homeModule = {
       image: "",
       id: 0,
       slug: ""
+    },
+
+    mostPopular: {
+      title: "",
+      rating: ""
     }
   }),
   mutations: {
@@ -19,6 +24,12 @@ const homeModule = {
         id: id,
         slug: attributes.slug
       };
+    },
+    saveMostPopular: function (state, { attributes }) {
+      state.mostPopular = {
+        title: attributes.titles.en,
+        rating: attributes.averageRating
+      };
     }
   },
   actions: {
@@ -28,6 +39,13 @@ const homeModule = {
         context.commit("saveHero", data.data[1]);
       });
     }
+  },
+  fetchMostPopular: function (context) {
+    const url =
+      "https://kitsu.io/api/edge/anime?page[limit]=6&page[offset]=0&sort=popularityRank";
+    axios.get(url).then(function ({ data }) {
+      context.commit("saveMostPopular", data.data);
+    });
   }
 };
 
