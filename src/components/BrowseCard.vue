@@ -2,10 +2,10 @@
   <div id="browse-card">
     <router-link to="/showpage">
       <div id="browse-card-image">
-        <img :src="`${browseCardImage}`" alt="Browse Card Image">
+        <img :src="`${browseCardImage}`" alt="Browse Card Image" />
       </div>
-      <div id="show-title">{{showTitle}}</div>
-      <div id="show-review">{{showReview}}</div>
+      <div id="show-title">{{ showTitle }}</div>
+      <div id="show-review">{{ showReview }}/100</div>
     </router-link>
   </div>
 </template>
@@ -16,8 +16,8 @@ export default {
   props: {
     browseCardImage: String,
     showTitle: String,
-    showReview: String
-  }
+    showReview: String,
+  },
 };
 </script>
 

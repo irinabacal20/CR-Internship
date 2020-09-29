@@ -11,6 +11,21 @@ const homeModule = {
     },
 
     mostPopular: {
+      id: 0,
+      image: "",
+      title: "",
+      rating: ""
+    },
+
+    newest: {
+      id: 0,
+      image: "",
+      title: "",
+      rating: ""
+    },
+    recentlyUpdated: {
+      id: 0,
+      image: "",
       title: "",
       rating: ""
     }
@@ -25,8 +40,26 @@ const homeModule = {
         slug: attributes.slug
       };
     },
-    saveMostPopular: function (state, { attributes }) {
+    saveMostPopular: function (state, { attributes, id }) {
       state.mostPopular = {
+        id: id,
+        image: attributes.coverImage.original,
+        title: attributes.titles.en,
+        rating: attributes.averageRating
+      };
+    },
+    saveNewest: function (state, { attributes, id }) {
+      state.newest = {
+        id: id,
+        image: attributes.coverImage.original,
+        title: attributes.titles.en,
+        rating: attributes.averageRating
+      };
+    },
+    saveRecentlyUpdated: function (state, { attributes, id }) {
+      state.recentlyUpdated = {
+        id: id,
+        image: attributes.coverImage.original,
         title: attributes.titles.en,
         rating: attributes.averageRating
       };
@@ -42,9 +75,23 @@ const homeModule = {
   },
   fetchMostPopular: function (context) {
     const url =
-      "https://kitsu.io/api/edge/anime?page[limit]=6&page[offset]=0&sort=popularityRank";
+      "https://kitsu.io/api/edge/anime?page[limit]=12&page[offset]=0&sort=popularityRank";
     axios.get(url).then(function ({ data }) {
       context.commit("saveMostPopular", data.data);
+    });
+  },
+  fetchNewest: function (context) {
+    const url =
+      "https://kitsu.io/api/edge/anime?page[limit]=12&page[offset]=0&sort=-createdAt";
+    axios.get(url).then(function ({ data }) {
+      context.commit("saveNewest", data.data);
+    });
+  },
+  fetchRecentlyUpdated: function (context) {
+    const url =
+      "https://kitsu.io/api/edge/anime?page[limit]=12&page[offset]=0&sort=-createdAt";
+    axios.get(url).then(function ({ data }) {
+      context.commit("saveRecentlyUpdated", data.data);
     });
   }
 };

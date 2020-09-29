@@ -1,26 +1,7 @@
 <template>
   <div id="browse-collection">
     <div id="browse-cards">
-      <BrowseCard
-        browseCardImage="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg"
-        showTitle="A.I.C.O Incarnation"
-        showReview="5/5"
-      />
-      <BrowseCard
-        browseCardImage="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg"
-        showTitle="A.I.C.O Incarnation"
-        showReview="5/5"
-      />
-      <BrowseCard
-        browseCardImage="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg"
-        showTitle="A.I.C.O Incarnation"
-        showReview="5/5"
-      />
-      <BrowseCard
-        browseCardImage="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg"
-        showTitle="A.I.C.O Incarnation"
-        showReview="5/5"
-      />
+      <BrowseCard />
     </div>
   </div>
 </template>
@@ -30,7 +11,16 @@ import BrowseCard from "./BrowseCard.vue";
 
 export default {
   name: "BrowseCollection",
-  components: { BrowseCard }
+  components: { BrowseCard },
+  /*created: function () {
+    this.$store.dispatch("fetchMostPopular");
+  },
+
+  computed: {
+    mostPopular: function () {
+      return this.$store.state.home.mostPopular;
+    },
+  },*/
 };
 </script>
 
