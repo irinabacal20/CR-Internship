@@ -76,16 +76,15 @@ export default {
     this.fetchNewest();
     this.fetchRecentlyUpdated();
   },
-
   computed: {
     mostPopular: function () {
-      return this.$store.state.home.mostPopular;
+      return this.$store.state.home.popularList;
     },
     newest: function () {
-      return this.$store.state.home.newest;
+      return this.$store.state.home.newestList;
     },
     recentlyUpdated: function () {
-      return this.$store.state.home.recentlyUpdated;
+      return this.$store.state.home.recentlyUpdatedList;
     },
   },
 };

@@ -9,26 +9,9 @@ const homeModule = {
       id: 0,
       slug: ""
     },
-
-    mostPopular: {
-      id: 0,
-      image: "",
-      title: "",
-      rating: ""
-    },
-
-    newest: {
-      id: 0,
-      image: "",
-      title: "",
-      rating: ""
-    },
-    recentlyUpdated: {
-      id: 0,
-      image: "",
-      title: "",
-      rating: ""
-    }
+    popularList: [],
+    newestList: [],
+    recentlyUpdatedList: []
   }),
   mutations: {
     saveHero: function (state, { attributes, id }) {
@@ -40,29 +23,37 @@ const homeModule = {
         slug: attributes.slug
       };
     },
-    saveMostPopular: function (state, { attributes, id }) {
-      state.mostPopular = {
-        id: id,
-        image: attributes.coverImage.original,
-        title: attributes.titles.en,
-        rating: attributes.averageRating
-      };
+    saveMostPopular: function (state, popularShows) {
+      state.popularList = popularShows.forEach((popularShow, id) => {
+        return {
+          id: popularShow.id,
+          image: popularShow.image,
+          title: popularShow.title,
+          rating: popularShow.rating
+        };
+      });
     },
-    saveNewest: function (state, { attributes, id }) {
-      state.newest = {
-        id: id,
-        image: attributes.coverImage.original,
-        title: attributes.titles.en,
-        rating: attributes.averageRating
-      };
+    saveNewest: function (state, newestShows) {
+      state.newestList = newestShows.forEach((newestShow, id) => {
+        return {
+          id: newestShow.id,
+          image: newestShow.image,
+          title: newestShow.title,
+          rating: newestShow.rating
+        };
+      });
     },
-    saveRecentlyUpdated: function (state, { attributes, id }) {
-      state.recentlyUpdated = {
-        id: id,
-        image: attributes.coverImage.original,
-        title: attributes.titles.en,
-        rating: attributes.averageRating
-      };
+    saveRecentlyUpdated: function (state, recentlyUpdatedShows) {
+      state.recentlyUpdatedList = recentlyUpdatedShows.forEach(
+        (recentlyUpdatedShow, id) => {
+          return {
+            id: recentlyUpdatedShow.id,
+            image: recentlyUpdatedShow.image,
+            title: recentlyUpdatedShow.title,
+            rating: recentlyUpdatedShow.rating
+          };
+        }
+      );
     }
   },
   actions: {
@@ -71,28 +62,28 @@ const homeModule = {
       axios.get(url).then(function ({ data }) {
         context.commit("saveHero", data.data[1]);
       });
+    },
+    fetchMostPopular: function (context) {
+      const url =
+        "https://kitsu.io/api/edge/anime?page[limit]=6&page[offset]=0&sort=popularityRank";
+      axios.get(url).then(function ({ popularShows }) {
+        context.commit("saveMostPopular", popularShows);
+      });
+    },
+    fetchNewest: function (context) {
+      const url =
+        "https://kitsu.io/api/edge/anime?page[limit]=6&page[offset]=0&sort=-createdAt";
+      axios.get(url).then(function ({ newestShows }) {
+        context.commit("saveNewest", newestShows);
+      });
+    },
+    fetchRecentlyUpdated: function (context) {
+      const url =
+        "https://kitsu.io/api/edge/anime?page[limit]=6&page[offset]=0&sort=-updatedAt";
+      axios.get(url).then(function ({ recentlyUpdatedShows }) {
+        context.commit("saveRecentlyUpdated", recentlyUpdatedShows);
+      });
     }
-  },
-  fetchMostPopular: function (context) {
-    const url =
-      "https://kitsu.io/api/edge/anime?page[limit]=12&page[offset]=0&sort=popularityRank";
-    axios.get(url).then(function ({ data }) {
-      context.commit("saveMostPopular", data.data);
-    });
-  },
-  fetchNewest: function (context) {
-    const url =
-      "https://kitsu.io/api/edge/anime?page[limit]=12&page[offset]=0&sort=-createdAt";
-    axios.get(url).then(function ({ data }) {
-      context.commit("saveNewest", data.data);
-    });
-  },
-  fetchRecentlyUpdated: function (context) {
-    const url =
-      "https://kitsu.io/api/edge/anime?page[limit]=12&page[offset]=0&sort=-createdAt";
-    axios.get(url).then(function ({ data }) {
-      context.commit("saveRecentlyUpdated", data.data);
-    });
   }
 };
 
