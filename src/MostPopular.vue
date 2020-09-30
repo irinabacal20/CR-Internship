@@ -11,11 +11,11 @@
         :showType="popularShow.showType"
         :showId="popularShow.id"
       />
+    </div>
 
-      <div v-if="isLoading" class="loading">Loading</div>
-      <div class="button-box">
-        <button @click="handleShowMore" class="button">Show More</button>
-      </div>
+    <div v-if="isLoading" class="loading">Loading</div>
+    <div id="button-box">
+      <button @click="handleShowMore" class="button">Show More</button>
     </div>
   </div>
 </template>
@@ -29,9 +29,6 @@ export default {
   components: {
     CategoryCardCollection,
     BrowseCard,
-  },
-  props: {
-    categoryName: String,
   },
   created() {
     this.$store.dispatch("fetchMostPopularPage");
@@ -68,6 +65,42 @@ export default {
   margin-bottom: 80px;
 }
 
+.button {
+  background: var(--third-color);
+  border: none;
+  padding: 10px;
+  color: var(--first-color);
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  display: block;
+  justify-content: center;
+  font-family: var(--general-font);
+}
+
+.button:hover {
+  background: var(--button-hover);
+}
+
+#button-box {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 0;
+}
+.loading {
+  animation: flash 3s ease infinite;
+  font-size: 25px;
+  text-align: center;
+}
+
+@keyframes flash {
+  from {
+    color: var(--third-color);
+  }
+  to {
+    color: white;
+  }
+}
+
 @media screen and (max-width: 900px) {
   #popular-shows {
     display: grid;
@@ -76,8 +109,7 @@ export default {
     margin: auto;
   }
   #most-popular-category {
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
   }
 }
 
