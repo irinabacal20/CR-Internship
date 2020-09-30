@@ -68,7 +68,7 @@ const categoriesModule = {
   },
   actions: {
     fetchMostPopularPage(context) {
-      const limit = 20;
+      const limit = 10;
       const offset = context.state.mostPopularList.length;
 
       context.commit("setIsLoading", {

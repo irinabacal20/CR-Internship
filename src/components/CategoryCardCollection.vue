@@ -1,8 +1,6 @@
 <template>
   <div id="category-card-collection">
     <h1 id="category-name">{{ categoryName }}</h1>
-
-    <div id="show-category-cards"></div>
   </div>
 </template>
 
@@ -30,22 +28,6 @@ export default {
 </script>
 
 <style>
-#category-card-collection {
-  background: var(--first-color);
-  box-shadow: var(--box-shadow);
-  margin-left: var(--margin-left);
-  margin-right: var(--margin-right);
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-#show-category-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 15px;
-  margin: 15px;
-}
-
 #category-name {
   padding-top: 20px;
   padding-left: 20px;

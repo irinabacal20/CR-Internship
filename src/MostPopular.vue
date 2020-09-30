@@ -11,11 +11,11 @@
         :showType="popularShow.showType"
         :showId="popularShow.id"
       />
-    </div>
 
-    <div v-if="isLoading" class="loading">Loading</div>
-    <div class="button-box">
-      <button @click="handleShowMore" class="button">Show More</button>
+      <div v-if="isLoading" class="loading">Loading</div>
+      <div class="button-box">
+        <button @click="handleShowMore" class="button">Show More</button>
+      </div>
     </div>
   </div>
 </template>
@@ -56,7 +56,42 @@ export default {
 #popular-shows {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 15px;
+  grid-gap: 50px;
   margin: 15px;
+}
+#most-popular-category {
+  background: var(--first-color);
+  box-shadow: var(--box-shadow);
+  margin-left: var(--margin-left);
+  margin-right: var(--margin-right);
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: 900px) {
+  #popular-shows {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px;
+    margin: auto;
+  }
+  #most-popular-category {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #popular-shows {
+    display: grid;
+    grid-template-columns: 80%;
+    grid-gap: 50px;
+    display: block;
+    margin: auto;
+  }
+  #most-popular-category {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>
