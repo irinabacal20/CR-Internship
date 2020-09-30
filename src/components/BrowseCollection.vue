@@ -11,6 +11,7 @@
         :browseCardImage="popular.image"
         :showTitle="popular.title"
         :showType="popular.showType"
+        :showId="popular.id"
       />
     </div>
 
@@ -22,6 +23,7 @@
         :browseCardImage="newCard.image"
         :showTitle="newCard.title"
         :showType="newCard.showType"
+        :showId="newCard.id"
       />
     </div>
 
@@ -36,6 +38,7 @@
         :browseCardImage="updatedCard.image"
         :showTitle="updatedCard.title"
         :showType="updatedCard.showType"
+        :showId="updatedCard.id"
       />
     </div>
   </div>

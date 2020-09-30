@@ -1,6 +1,6 @@
 <template>
   <div id="browse-card">
-    <router-link to="/showpage">
+    <router-link :to="'showpage/' + showId">
       <div id="browse-card-image">
         <img :src="browseCardImage" alt="Browse Card Image" />
       </div>
@@ -17,6 +17,7 @@ export default {
     browseCardImage: String,
     showTitle: String,
     showType: String,
+    showId: String,
   },
 };
 </script>

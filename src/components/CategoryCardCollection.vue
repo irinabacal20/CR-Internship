@@ -1,37 +1,31 @@
 <template>
   <div id="category-card-collection">
-    <h1 id="category-name">{{categoryName}}</h1>
+    <h1 id="category-name">{{ categoryName }}</h1>
 
-    <div id="show-category-cards">
-      <BrowseCard
-        browseCardImage="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg"
-        showTitle="A.I.C.O Incarnation"
-        showReview="5/5"
-      />
-      <BrowseCard
-        browseCardImage="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg"
-        showTitle="A.I.C.O Incarnation"
-        showReview="5/5"
-      />
-      <BrowseCard
-        browseCardImage="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg"
-        showTitle="A.I.C.O Incarnation"
-        showReview="5/5"
-      />
-    </div>
+    <div id="show-category-cards"></div>
   </div>
 </template>
 
 <script>
 import BrowseCard from "./BrowseCard.vue";
+import { mapActions } from "vuex";
 export default {
   name: "CategoryCardCollection",
   components: {
-    BrowseCard
+    BrowseCard,
   },
   props: {
-    categoryName: String
-  }
+    categoryName: String,
+  },
+  methods: mapActions(["fetchMostPopularPage"]),
+  created() {
+    this.fetchMostPopularPage();
+  },
+  computed: {
+    mostPopular: function () {
+      return this.$store.state.categories.mostPopularList;
+    },
+  },
 };
 </script>
 
