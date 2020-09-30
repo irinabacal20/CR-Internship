@@ -3,13 +3,15 @@ import Vuex from "vuex";
 
 import home from "./modules/home.js";
 import categories from "./modules/categories.js";
+import browseAll from "./modules/browseAll.js";
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   modules: {
     home: home,
-    categories: categories
+    categories: categories,
+    browseAll: browseAll
   }
 });
 

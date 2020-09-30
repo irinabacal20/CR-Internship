@@ -31,7 +31,7 @@ export default {
 }
 
 #browse-card-image > img:hover {
-  box-shadow: -1px 3px 15px -5px var(--second-color);
+  box-shadow: -1px 3px 15px black;
 }
 
 #browse-card-image > img {

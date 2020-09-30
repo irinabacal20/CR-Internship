@@ -38,7 +38,7 @@ export default {
       return this.$store.state.categories.newestList;
     },
     isLoading: function () {
-      return this.$store.state.categories.isMostPopularLoading;
+      return this.$store.state.categories.isNewestLoading;
     },
   },
   methods: {
@@ -52,7 +52,7 @@ export default {
 <style>
 #newest-shows {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 50px;
   margin: 15px;
 }

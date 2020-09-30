@@ -3,21 +3,31 @@
     <div id="footer-content-container">
       <div id="social-media">
         <a href="https://www.facebook.com/bacal.irina" target="_bank">
-          <img src="../assets/facebook.png" alt="Facebook Logo" width="35px" height="35px">
+          <img
+            src="../assets/facebook.png"
+            alt="Facebook Logo"
+            width="35px"
+            height="35px"
+          />
         </a>
         <a href="https://www.instagram.com/irinabacal/" target="_bank">
-          <img src="../assets/instagram.png" alt="Instagram Logo" width="35px" height="35px">
+          <img
+            src="../assets/instagram.png"
+            alt="Instagram Logo"
+            width="35px"
+            height="35px"
+          />
         </a>
         <a href="https://twitter.com/ireneB_Md" target="_bank">
-          <img src="../assets/twitter.png" alt="Twitter Logo" width="35px" height="35px">
+          <img
+            src="../assets/twitter.png"
+            alt="Twitter Logo"
+            width="35px"
+            height="35px"
+          />
         </a>
       </div>
-      <div id="footer-text">
-        <router-link to="/">Home</router-link>
-        <router-link to>Contacts</router-link>
-        <router-link to>About</router-link>
-      </div>
-      <span>&#169; 2020 Bacal Irina</span>
+      <span id="propertyOf">&#169; 2020 Bacal Irina</span>
     </div>
   </footer>
 </template>
@@ -27,7 +37,7 @@ export default {
   name: "Footer",
   data() {
     return {};
-  }
+  },
 };
 </script>
 
@@ -61,23 +71,9 @@ export default {
 #social-media > a>img:hover {
   filter: drop-shadow(0 0 0.25rem var(--second-color));
 }
-#footer-text>a{
-  color: var(--first-color);
-  padding-bottom: 20px;
-  text-align: center;
-  font-family: var(--general-font);
-  text-decoration: none;
-  padding:10px 40px;
-}
-#footer-text>a:hover{
-  font-size: 15px;
-  text-shadow:3px -4px 12px var(--second-color);
 
-}
-#footer-text{
-  display: flex;
-  justify-content: center;
-  padding-bottom: 20px;
+#propertyOf{
+  padding:15px;
 }
 
 @media screen and (max-width: 900px){

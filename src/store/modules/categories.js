@@ -63,12 +63,12 @@ const categoriesModule = {
         id: id,
         showType: attributes.showType
       };
-      state.updatedList.push(state.recentluUpdated);
+      state.updatedList.push(state.recentlyUpdated);
     }
   },
   actions: {
     fetchMostPopularPage(context) {
-      const limit = 10;
+      const limit = 20;
       const offset = context.state.mostPopularList.length;
 
       context.commit("setIsLoading", {
