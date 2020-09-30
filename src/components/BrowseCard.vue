@@ -5,7 +5,7 @@
         <img :src="browseCardImage" alt="Browse Card Image" />
       </div>
       <div id="show-title">{{ showTitle }}</div>
-      <div id="show-review">{{ showReview }}/100</div>
+      <div id="show-type">{{ showType }}</div>
     </router-link>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
   props: {
     browseCardImage: String,
     showTitle: String,
-    showReview: String,
+    showType: String,
   },
 };
 </script>
@@ -41,11 +41,15 @@ export default {
 }
 
 #show-title,
-#show-review {
+#show-type {
   text-align: left;
   font-family: var(--general-font);
   font-size: 15px;
   padding: 5px 0;
+}
+
+#show-title {
+  font-weight: bold;
 }
 
 a {

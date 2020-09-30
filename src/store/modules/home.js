@@ -9,9 +9,30 @@ const homeModule = {
       id: 0,
       slug: ""
     },
+    mostPopular: {
+      title: "",
+      image: "",
+      id: 0,
+      slug: "",
+      type: ""
+    },
+    newest: {
+      title: "",
+      image: "",
+      id: 0,
+      slug: "",
+      type: ""
+    },
+    recentlyUpdated: {
+      title: "",
+      image: "",
+      id: 0,
+      slug: "",
+      type: ""
+    },
     popularList: [],
     newestList: [],
-    recentlyUpdatedList: []
+    updatedList: []
   }),
   mutations: {
     saveHero: function (state, { attributes, id }) {
@@ -23,37 +44,35 @@ const homeModule = {
         slug: attributes.slug
       };
     },
-    saveMostPopular: function (state, popularShows) {
-      state.popularList = popularShows.forEach((popularShow, id) => {
-        return {
-          id: popularShow.id,
-          image: popularShow.image,
-          title: popularShow.title,
-          rating: popularShow.rating
-        };
-      });
+    saveMostPopular: function (state, { attributes, id }) {
+      state.mostPopular = {
+        title: attributes.canonicalTitle,
+        image: attributes.posterImage.small,
+        id: id,
+        slug: attributes.slug,
+        showType: attributes.showType
+      };
+      state.popularList.push(state.mostPopular);
     },
-    saveNewest: function (state, newestShows) {
-      state.newestList = newestShows.forEach((newestShow, id) => {
-        return {
-          id: newestShow.id,
-          image: newestShow.image,
-          title: newestShow.title,
-          rating: newestShow.rating
-        };
-      });
+    saveNewest: function (state, { attributes, id }) {
+      state.newest = {
+        title: attributes.canonicalTitle,
+        image: attributes.posterImage.small,
+        id: id,
+        slug: attributes.slug,
+        showType: attributes.showType
+      };
+      state.newestList.push(state.newest);
     },
-    saveRecentlyUpdated: function (state, recentlyUpdatedShows) {
-      state.recentlyUpdatedList = recentlyUpdatedShows.forEach(
-        (recentlyUpdatedShow, id) => {
-          return {
-            id: recentlyUpdatedShow.id,
-            image: recentlyUpdatedShow.image,
-            title: recentlyUpdatedShow.title,
-            rating: recentlyUpdatedShow.rating
-          };
-        }
-      );
+    saveRecentlyUpdated: function (state, { attributes, id }) {
+      state.recentlyUpdated = {
+        title: attributes.canonicalTitle,
+        image: attributes.posterImage.small,
+        id: id,
+        slug: attributes.slug,
+        showType: attributes.showType
+      };
+      state.updatedList.push(state.recentlyUpdated);
     }
   },
   actions: {
@@ -66,22 +85,28 @@ const homeModule = {
     fetchMostPopular: function (context) {
       const url =
         "https://kitsu.io/api/edge/anime?page[limit]=6&page[offset]=0&sort=popularityRank";
-      axios.get(url).then(function ({ popularShows }) {
-        context.commit("saveMostPopular", popularShows);
+      axios.get(url).then(function ({ data }) {
+        for (let i = 0; i < 6; i++) {
+          context.commit("saveMostPopular", data.data[i]);
+        }
       });
     },
     fetchNewest: function (context) {
       const url =
         "https://kitsu.io/api/edge/anime?page[limit]=6&page[offset]=0&sort=-createdAt";
-      axios.get(url).then(function ({ newestShows }) {
-        context.commit("saveNewest", newestShows);
+      axios.get(url).then(function ({ data }) {
+        for (let i = 0; i < 6; i++) {
+          context.commit("saveNewest", data.data[i]);
+        }
       });
     },
     fetchRecentlyUpdated: function (context) {
       const url =
         "https://kitsu.io/api/edge/anime?page[limit]=6&page[offset]=0&sort=-updatedAt";
-      axios.get(url).then(function ({ recentlyUpdatedShows }) {
-        context.commit("saveRecentlyUpdated", recentlyUpdatedShows);
+      axios.get(url).then(function ({ data }) {
+        for (let i = 0; i < 6; i++) {
+          context.commit("saveRecentlyUpdated", data.data[i]);
+        }
       });
     }
   }
