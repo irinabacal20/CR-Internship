@@ -22,6 +22,11 @@ export default {
       search: "",
     };
   },
+  methods: {
+    handleSearch: function () {
+      this.$store.dispatch("fetchSearchPage", this.search);
+    },
+  },
 };
 </script>
 

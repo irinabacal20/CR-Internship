@@ -1,15 +1,31 @@
 <template>
   <div id="search-page">
-    <SearchPageForm/>
+    <SearchPageForm />
     <div id="search-cards-container">
       <p>Series</p>
       <div id="search-card-collection">
-        <SearchCard/>
-        <SearchCard/>
-        <SearchCard/>
-        <SearchCard/>
-        <SearchCard/>
-        <SearchCard/>
+        <SearchCard
+          v-for="series in seriesCollection"
+          :key="series.id"
+          :searchCardImage="series.image"
+          :showTitle="series.title"
+          :showDescription="series.description"
+          :showId="series.id"
+        />
+      </div>
+    </div>
+
+    <div id="search-cards-container">
+      <p>Movies</p>
+      <div id="search-card-collection">
+        <SearchCard
+          v-for="movies in moviesCollection"
+          :key="movies.id"
+          :searchCardImage="movies.image"
+          :showTitle="movies.title"
+          :showDescription="movies.description"
+          :showId="movies.id"
+        />
       </div>
     </div>
   </div>
@@ -23,8 +39,19 @@ export default {
   name: "ShowPage",
   components: {
     SearchPageForm,
-    SearchCard
-  }
+    SearchCard,
+  },
+  created: function () {
+    this.$store.dispatch("fetchSearchPage");
+  },
+  computed: {
+    seriesCollection: function () {
+      return this.$store.state.searchPage.seriesList;
+    },
+    moviesCollection: function () {
+      return this.$store.state.searchPage.moviesList;
+    },
+  },
 };
 </script>
 

@@ -1,14 +1,13 @@
 <template>
   <div id="search-card">
     <div id="search-card-contents">
-      <img :src="`${searchCardImage}`" alt="Browse Card Image">
+      <img :src="`${searchCardImage}`" alt="Browse Card Image" />
       <div id="show-description">
-        <p id="show-title">{{showTitle}}</p>
-        <p id="show-rating">Rating: {{showRating}}</p>
-        <p>{{showDescription}}</p>
-        <router-link to="/showpage">
-          <button id="watch-button">Watch</button>
-        </router-link>
+        <p id="show-title">{{ showTitle }}</p>
+        <p id="search-card-description">{{ showDescription }}...</p>
+        <router-link :to="'showpage/' + showId" id="watch-button"
+          >Watch</router-link
+        >
       </div>
     </div>
   </div>
@@ -17,16 +16,12 @@
 <script>
 export default {
   name: "SearchCard",
-  data() {
-    return {
-      searchCardImage:
-        "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/826174/826174._SX1280_QL80_TTD_.jpg",
-      showTitle: "A.I.C.O Incarnation",
-      showRating: "5/5",
-      showDescription:
-        "In 2035, a biological research project to create an Artificial and Intelligent Cellular Organism (A.I.C.O.) went awry, resulting in an incident called the Burst which transformed Kurobe Gorge into a quarantine area infested by a rampant growth of synthetic organisms called Matter. Two years later, high school student Aiko Tachibana finds that she may be the duplicate of a girl trapped within the Matter whose family disappeared in the Burst."
-    };
-  }
+  props: {
+    searchCardImage: String,
+    showTitle: String,
+    showDescription: String,
+    showId: String,
+  },
 };
 </script>
 
@@ -84,6 +79,29 @@ export default {
   border: -1px 3px 15px -5px var(--button-hover);
 }
 
+#search-card-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+#watch-button {
+  text-decoration: none;
+  padding: 8px;
+  background: var(--third-color);
+  color: var(--first-color);
+  font-weight: bold;
+  border-radius: var(--button-border-radius);
+  margin: 20px;
+  display: block;
+  width: 50px;
+  border: none;
+}
+#watch-button:hover {
+  background: var(--button-hover);
+}
 @media screen and (max-width: 900px) {
   #search-card-contents {
     display: flex;
