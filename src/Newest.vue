@@ -52,7 +52,7 @@ export default {
 <style>
 #newest-shows {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 50px;
   margin: 15px;
 }

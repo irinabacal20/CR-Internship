@@ -55,15 +55,16 @@ const categoriesModule = {
       };
       state.newestList.push(state.newest);
     },
-    saveRecentlyUpdatedPage(state, { attributes, id }) {
-      state.recentlyUpdated = {
-        title: attributes.titles.en,
-        image: attributes.posterImage.small,
-        slug: attributes.slug,
-        id: id,
-        showType: attributes.showType
-      };
-      state.updatedList.push(state.recentlyUpdated);
+    saveRecentlyUpdatedPage(state, data) {
+      state.updatedList = data.map(function (oneItem) {
+        return {
+          title: oneItem.attributes.titles.en,
+          image: oneItem.attributes.posterImage.small,
+          slug: oneItem.attributes.slug,
+          id: oneItem.id,
+          showType: oneItem.attributes.showType
+        };
+      });
     }
   },
   actions: {
@@ -129,9 +130,7 @@ const categoriesModule = {
           `https://kitsu.io/api/edge/anime?sort=-updatedAt&page[limit]=${limit}&page[offset]=${offset}`
         )
         .then(function ({ data }) {
-          data.data.forEach(function (item) {
-            context.commit("saveRecentlyUpdatedPage", item);
-          });
+          context.commit("saveRecentlyUpdatedPage", data.data);
 
           context.commit("setIsLoading", {
             propName: "isRecentlyUpdatedLoading",

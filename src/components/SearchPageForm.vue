@@ -1,17 +1,27 @@
 <template>
   <div id="search-page-form">
     <div id="input-field">
-      <input type="text" placeholder="Search">
-      <router-link to="SeachPage">
-        <img src="../assets/search_icon.png" alt="Search Icon" width="30px" height="30px">
-      </router-link>
+      <input type="text" placeholder="Search" v-model="search" name="search" />
+      <button type="submit" @click="handleSearch">
+        <img
+          src="../assets/search_icon.png"
+          alt="Search Icon"
+          width="30px"
+          height="30px"
+        />
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "SearchPageForm"
+  name: "SearchPageForm",
+  data() {
+    return {
+      search: "",
+    };
+  },
 };
 </script>
 
@@ -29,11 +39,17 @@ export default {
   height: 65px;
 }
 
-#input-field > a > img {
+#input-field > button > img {
   filter: drop-shadow(0 0 3px black);
 }
 
-#input-field > a > img:hover {
+#input-field >button{
+background:none;
+border:none;
+cursor:pointer;
+}
+
+#input-field > button > img:hover {
    filter: drop-shadow(0 0 3px var(--first-color));
 }
 
@@ -41,5 +57,6 @@ export default {
   border: none;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
+  padding-left:20px;
 }
 </style>
